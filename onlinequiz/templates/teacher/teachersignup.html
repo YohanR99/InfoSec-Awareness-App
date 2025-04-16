@@ -1,0 +1,218 @@
+<!-- <!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+
+        form{
+           margin: 50px; 
+          
+        }
+
+    </style>
+  </head>
+  <body>
+    {% include "quiz/navbar.html" %}
+ 
+
+
+<br><br><br>
+<h3 style="text-align: center;color: red;">Trainer SIGNUP</h3>
+<form method="POST" autocomplete="off" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="username">Username</label>
+        {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="username" %}
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Password</label>
+        {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="password" %}
+      </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="first_name">First Name</label>
+          {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="First Name" %}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="last_name">Last Name</label>
+          {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Last Name" %}
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="mobile">Mobile</label>
+          {% render_field teacherForm.mobile|attr:'required:true'  class="form-control" placeholder="Mobile" %}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="address">Address</label>
+          {% render_field teacherForm.address|attr:'required:true'  class="form-control" placeholder="Address" %}
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="profile_pic">Profile Picture</label>
+          {% render_field teacherForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
+        </div>
+        
+      </div>
+
+
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+  </form>
+
+
+<br><br>
+{% include "quiz/footer.html" %}
+  </body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+
+        form{
+           margin: 50px; 
+        }
+        /* Modal styles */
+        .modal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        .modal-content {
+          background-color: #fefefe;
+          margin: 15% auto;
+          padding: 20px;
+          border: 1px solid #888;
+          width: 80%;
+        }
+        .close {
+          color: #aaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+          color: black;
+          text-decoration: none;
+          cursor: pointer;
+        }
+    </style>
+    <script>
+        // Script to handle enabling/disabling signup button
+        function toggleSubmitButton() {
+            const acceptCheckbox = document.getElementById('accept_policy');
+            const submitButton = document.getElementById('signup_button');
+            submitButton.disabled = !acceptCheckbox.checked;
+        }
+
+        // Script to open and close the modal
+        function openModal() {
+            document.getElementById("policyModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("policyModal").style.display = "none";
+        }
+    </script>
+  </head>
+  <body>
+    {% include "quiz/navbar.html" %}
+  
+    <br><br><br>
+    <h3 style="text-align: center;color: red;">TRAINER SIGNUP</h3>
+    <form method="POST" autocomplete="off" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="username">Username</label>
+            {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="username" %}
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Password</label>
+            {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="password" %}
+          </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="first_name">First Name</label>
+              {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="First Name" %}
+            </div>
+            <div class="form-group col-md-6">
+              <label for="last_name">Last Name</label>
+              {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Last Name" %}
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="mobile">Mobile</label>
+              {% render_field teacherForm.mobile|attr:'required:true'  class="form-control" placeholder="Mobile" %}
+            </div>
+            <div class="form-group col-md-6">
+              <label for="address">Address</label>
+              {% render_field teacherForm.address|attr:'required:true'  class="form-control" placeholder="Address" %}
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="profile_pic">Profile Picture</label>
+              {% render_field teacherForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
+            </div>
+          </div>
+
+        <!-- Acceptable Use Policy Section -->
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <input type="checkbox" id="accept_policy" onchange="toggleSubmitButton()">
+            <label for="accept_policy">
+              I have read and accept the 
+              <a href="javascript:void(0);" onclick="openModal()">Acceptable Use Policy</a>
+            </label>
+          </div>
+        </div>
+
+        <!-- Signup Button (disabled by default) -->
+        <button type="submit" id="signup_button" class="btn btn-primary" disabled>Sign Up</button>
+    </form>
+
+    <!-- Modal for Acceptable Use Policy -->
+    <div id="policyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h4>Acceptable Use Policy</h4>
+            <p>
+                <!-- You can paste the policy content here, or load it from another source -->
+                 
+                Please read the policy carefully and make sure you understand the rules and guidelines for using the company's resources...
+            </p>
+        </div>
+    </div>
+
+    <br><br>
+    {% include "quiz/footer.html" %}
+  </body>
+</html>

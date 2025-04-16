@@ -1,0 +1,26 @@
+---- Creating and activating virtual Environment -----
+
+$ virtualenv env 
+$ source env/bin/activate
+
+$ pip install django
+
+--- To make a Project ----
+$ django-admin startproject myproject
+
+
+--- To make migrations to the database of this Project ----
+$ python3 manage.py migrate
+
+
+---- To start the loca; server on my Computer ----
+$ python3 manage.py runserver
+
+---- To start a App ----
+$ python3 manage.py startapp App1
+
+$ python3 manage.py makemigrations
+$ python3 manage.py migrate
+
+
+$ python3 manage.py createsuperuser
